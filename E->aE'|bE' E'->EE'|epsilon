@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<stdlib.h>
+char c;
+void E();void Edash();void accept();
+void accept(){
+c=getchar();
+}
+void E(){
+if(c=='a' || c=='b'){
+accept();
+Edash();
+}
+else{
+printf("Invalid input");
+exit(0);
+}
+}
+void Edash(){
+if(c=='a' || c=='b'){
+E();
+Edash();
+}
+else{
+return;
+}
+}
+int main(){
+printf("Enter the string \n");
+c=getchar();
+E();
+if(c=='$'){
+printf("Parsing Successful");
+}
+else{
+printf("Invalid input !");
+}
+return 0;
+}
