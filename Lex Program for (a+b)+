@@ -1,0 +1,23 @@
+%{
+#include<stdio.h>
+#include<stdbool.h>
+bool flag=false;
+%}
+
+%%
+[a-b]+ {flag=true;}
+[$] {if(flag==true){
+printf("\nParsing successful");
+}
+else{
+printf("\nInalid Input");
+}
+return 0;
+}
+%%
+int yywrap(){}
+int main(){
+printf("Enter the string ending with $ : ");
+yylex();
+return 0;
+}
