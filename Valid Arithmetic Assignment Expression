@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<stdlib.h>
+char c;
+void operand();void operator();
+void accept(){
+c=getchar();
+}
+void operator(){
+if(c=='+' || c=='-' || c=='*' || c=='/'){
+accept();
+operand();
+}
+else{
+return;
+}
+}
+void operand(){
+if(c=='i'){
+accept();
+operator();
+}
+else{
+printf("Invalid input");
+exit(0);
+}
+}
+int main(){
+printf("Enter the string \n");
+c=getchar();
+operand();
+if(c=='$'){
+printf("Parsing Successful");
+}
+else{
+printf("Invalid input !");
+}
+return 0;
+}
